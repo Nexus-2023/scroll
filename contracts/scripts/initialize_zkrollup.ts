@@ -18,7 +18,11 @@ async function main() {
   const ScrollChain = await ethers.getContractAt("ScrollChain", addressFile.get("ScrollChain.proxy"), deployer);
 
   if ((await ScrollChain.owner()) === constants.AddressZero) {
-    const tx = await ScrollChain.initialize(L1_MESSAGE_QUEUE, constants.AddressZero);
+    const tx = await ScrollChain.initialize(
+      L1_MESSAGE_QUEUE,
+      ethers.utils.getAddress("0xA10Bd70F8479Edb0b067EA4A076290f7243afE08"),
+      25
+    );
     console.log("initialize ScrollChain, hash:", tx.hash);
     const receipt = await tx.wait();
     console.log(`✅ Done, gas used: ${receipt.gasUsed}`);
@@ -27,7 +31,7 @@ async function main() {
   const L1RollupOperatorAddress = process.env.L1_ROLLUP_OPERATOR_ADDR!;
   if ((await ScrollChain.isBatchFinalized(L1RollupOperatorAddress)) === false) {
     console.log("L1_ROLLUP_OPERATOR_ADDR", L1RollupOperatorAddress);
-    const tx = await ScrollChain.updateSequencer(L1RollupOperatorAddress, true);
+    const tx = await ScrollChain.addSequencer(L1RollupOperatorAddress);
     console.log("updateOperator ScrollChain, hash:", tx.hash);
     const receipt = await tx.wait();
     console.log(`✅ Done, gas used: ${receipt.gasUsed}`);

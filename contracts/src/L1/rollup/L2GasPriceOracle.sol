@@ -61,7 +61,7 @@ contract L2GasPriceOracle is OwnableUpgradeable, IL2GasPriceOracle {
      ***************/
 
     constructor() {
-        _disableInitializers();
+        // _disableInitializers();
     }
 
     function initialize(

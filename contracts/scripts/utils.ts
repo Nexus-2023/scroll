@@ -1,4 +1,4 @@
-import * as fs from "fs";
+  import * as fs from "fs";
 import * as path from "path";
 import editJsonFile from "edit-json-file";
 

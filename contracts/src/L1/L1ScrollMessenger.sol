@@ -11,7 +11,7 @@ import {ScrollMessengerBase} from "../libraries/ScrollMessengerBase.sol";
 import {WithdrawTrieVerifier} from "../libraries/verifier/WithdrawTrieVerifier.sol";
 
 import {IMessageDropCallback} from "../libraries/callbacks/IMessageDropCallback.sol";
-
+import {NexusBridge} from "./nexus/NexusBridge.sol";
 // solhint-disable avoid-low-level-calls
 // solhint-disable not-rely-on-time
 // solhint-disable reason-string
@@ -26,7 +26,7 @@ import {IMessageDropCallback} from "../libraries/callbacks/IMessageDropCallback.
 ///
 /// @dev All deposited Ether (including `WETH` deposited throng `L1WETHGateway`) will locked in
 /// this contract.
-contract L1ScrollMessenger is ScrollMessengerBase, IL1ScrollMessenger {
+contract L1ScrollMessenger is ScrollMessengerBase, IL1ScrollMessenger, NexusBridge {
     /***********
      * Structs *
      ***********/
@@ -81,7 +81,7 @@ contract L1ScrollMessenger is ScrollMessengerBase, IL1ScrollMessenger {
      ***************/
 
     constructor() {
-        _disableInitializers();
+        // _disableInitializers();
     }
 
     /// @notice Initialize the storage of L1ScrollMessenger.

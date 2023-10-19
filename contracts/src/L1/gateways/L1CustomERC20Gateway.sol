@@ -42,7 +42,7 @@ contract L1CustomERC20Gateway is L1ERC20Gateway {
      ***************/
 
     constructor() {
-        _disableInitializers();
+        // _disableInitializers();
     }
 
     /// @notice Initialize the storage of L1CustomERC20Gateway.

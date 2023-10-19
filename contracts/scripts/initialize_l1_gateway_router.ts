@@ -23,11 +23,12 @@ async function main() {
   const L1ScrollMessengerAddress = addressFile.get("L1ScrollMessenger.proxy");
   const L2GatewayRouterAddress = process.env.L2_GATEWAY_ROUTER_PROXY_ADDR!;
 
-  if ((await L1GatewayRouter.counterpart()) === constants.AddressZero) {
+  // if ((await L1GatewayRouter.counterpart()) === constants.AddressZero) {
+  // eslint-disable-next-line no-constant-condition
+  if (true) {
     const tx = await L1GatewayRouter.initialize(
-      L1StandardERC20GatewayAddress,
-      L2GatewayRouterAddress,
-      L1ScrollMessengerAddress
+      "0xA74Feb3d2Afa0CF3927f4D3F42e37a66AB494DE0",
+      "0xBC46fb139e83967b850a38CDe4C6025a91F58527"
     );
     console.log("initialize L1StandardERC20Gateway, hash:", tx.hash);
     const receipt = await tx.wait();

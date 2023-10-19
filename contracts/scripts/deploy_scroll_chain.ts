@@ -28,12 +28,9 @@ async function main() {
   if (!addressFile.get("ScrollChain.implementation")) {
     console.log(">> Deploy ScrollChain implementation");
     const ScrollChain = await ethers.getContractFactory("ScrollChain", {
-      libraries: {
-        RollupVerifier: addressFile.get("ScrollChain.verifier"),
-      },
       signer: deployer,
     });
-    const impl = await ScrollChain.deploy(CHAIN_ID_L2, MAX_TX_IN_BATCH, PADDING_TX_HASH);
+    const impl = await ScrollChain.deploy(CHAIN_ID_L2);
     console.log(`>> waiting for transaction: ${impl.deployTransaction.hash}`);
     await impl.deployed();
     console.log(`✅ ScrollChain implementation deployed at ${impl.address}`);

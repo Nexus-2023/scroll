@@ -54,7 +54,7 @@ contract L1GatewayRouter is OwnableUpgradeable, IL1GatewayRouter {
      ***************/
 
     constructor() {
-        _disableInitializers();
+        // _disableInitializers();
     }
 
     /// @notice Initialize the storage of L1GatewayRouter.

@@ -21,7 +21,10 @@ async function main() {
   if (!addressFile.get(`${contractName}.implementation`)) {
     console.log(`>> Deploy ${contractName} implementation`);
     const ContractImpl = await ethers.getContractFactory(contractName, deployer);
-    const impl = await ContractImpl.deploy();
+    const impl = await ContractImpl.deploy(
+      "0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6",
+      "0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6"
+    );
     console.log(`>> waiting for transaction: ${impl.deployTransaction.hash}`);
     await impl.deployed();
     console.log(`✅ ${contractName} implementation deployed at ${impl.address}`);

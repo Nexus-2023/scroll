@@ -52,7 +52,7 @@ contract EnforcedTxGateway is OwnableUpgradeable, ReentrancyGuardUpgradeable, Pa
      ***************/
 
     constructor() {
-        _disableInitializers();
+        // _disableInitializers();
     }
 
     function initialize(address _queue, address _feeVault) external initializer {

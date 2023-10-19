@@ -22,7 +22,7 @@ contract L1ETHGateway is ScrollGatewayBase, IL1ETHGateway, IMessageDropCallback 
      ***************/
 
     constructor() {
-        _disableInitializers();
+        // _disableInitializers();
     }
 
     /// @notice Initialize the storage of L1ETHGateway.

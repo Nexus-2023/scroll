@@ -19,9 +19,9 @@ async function main() {
     deployer
   );
 
-  const L2GatewayRouterAddress = addressFile.get("L2GatewayRouter.proxy");
-  const L2ScrollMessengerAddress = addressFile.get("L2ScrollMessenger");
-  const L1CustomERC20GatewayAddress = process.env.L1_CUSTOM_ERC20_GATEWAY_PROXY_ADDR!;
+  const L2GatewayRouterAddress = ethers.utils.getAddress("0xbDA5747bFD65F08deb54cb465eB87D40e51B197E");
+  const L2ScrollMessengerAddress = ethers.utils.getAddress("0xbDA5747bFD65F08deb54cb465eB87D40e51B197E");
+  const L1CustomERC20GatewayAddress = ethers.utils.getAddress(process.env.L1_CUSTOM_ERC20_GATEWAY_PROXY_ADDR!);
 
   if ((await L2CustomERC20Gateway.counterpart()) === constants.AddressZero) {
     const tx = await L2CustomERC20Gateway.initialize(

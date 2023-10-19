@@ -84,7 +84,7 @@ contract L1MessageQueue is OwnableUpgradeable, IL1MessageQueue {
      ***************/
 
     constructor() {
-        _disableInitializers();
+        // _disableInitializers();
     }
 
     function initialize(

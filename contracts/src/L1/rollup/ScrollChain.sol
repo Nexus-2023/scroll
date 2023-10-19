@@ -99,7 +99,7 @@ contract ScrollChain is OwnableUpgradeable, PausableUpgradeable, IScrollChain {
      ***************/
 
     constructor(uint64 _chainId) {
-        _disableInitializers();
+        // _disableInitializers();
 
         layer2ChainId = _chainId;
     }
